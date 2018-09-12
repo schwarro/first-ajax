@@ -48,7 +48,17 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
 
-
+  $("#step9 button").click(function() {
+    $.ajax({
+      url: "http://first-ajax-api.herokuapp.com/a_car",
+      method: "GET",
+      dataType: "html"
+    }).done(function(responseData) {
+      console.log("Great Success!");
+      var response = $("<ul>").html(responseData).attr("id", "car");
+      $("#step9").append(response);
+    });
+  });
 
 
 
