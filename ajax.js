@@ -36,6 +36,18 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
 
+  $("#step8 button").click(function() {
+    $.ajax({
+      url: "http://first-ajax-api.herokuapp.com/time",
+      method: "GET",
+      data: {timezone: "America/Mexico_City"}
+    }).done(function(responseData) {
+      console.log("Great Success!");
+      var response = $("<p>").html(responseData);
+      $("#step8").append(response);
+    });
+  });
+
 
 
 
